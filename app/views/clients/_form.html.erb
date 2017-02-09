@@ -1,0 +1,80 @@
+
+
+<%= form_for @client do |f| %>
+
+<% if @client.errors.any? %>
+ <div class="alert alert-danger">
+   <h3>These errors phohibitted the form from being saved: </h3>
+   <ul>
+    <% @client.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+   </ul>
+  </div>
+ <% end %>
+
+
+
+
+
+
+<div class="form-group">
+<%= f.label :name %>
+<%= f.text_field :name, class: "form-control" %> 
+</div>
+
+
+<%= f.label :email %><br/>
+<%= f.email_field :email %><br/>
+
+<%= f.label :mobile %><br/>
+<%= f.text_field :mobile, id="mobile" %><br/>
+
+<div class="form-group">
+<%= f.label :company %><br/>
+<%= f.text_field :company, class: "form-control" %><br/>
+</div>
+
+
+<%= f.label :website %><br/>
+<%= f.url_field :website %><br/>
+
+<%= f.submit %>
+
+<% end %>
+
+<script >
+	var mobileHandle = document.getElementById('mobile');
+	var mobileErrorHandle = document.getElementById('mobileError');
+	var formHandle = document.getElementById('new_client');
+	var anyError = false;
+	formHandle.onsubmit = function(e){
+	if(anyError){
+		e.preventDefault();
+	}
+}
+
+mobileHandle.onblur = function(){
+	if(mobileHandle.value.length == 10){
+		var request = new XMLHttpRequest();
+		request.open('GET','/clients/validate_client.json?mobile='+ mobileHandle.value,true);
+		request.onreadystatechange = function(){
+			if((request.readyState == 4) && (request.status === 200)){
+				var response = JSON.parse(request.responseText);
+				if(response.can_create){
+					mobileErrorHandle.innerHTML = "Good to go";
+					anyError = false;
+				}else{
+					mobileErrorHandle.innerHTML = "Mobile already taken";
+					anyError = true;
+				}
+			}
+		}
+		request.send();
+
+	}else{
+		anyError = true
+		mobileErrorHandle.innerHTML = "Should be 10 digits"
+	}
+};
+</script>

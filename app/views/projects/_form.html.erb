@@ -1,0 +1,146 @@
+<h2>Add New Project</h2>
+
+<%= form_for @project do |f| %>
+<% if @project.errors.any? %>
+ <div class="alert alert-danger">
+   <h3>These errors phohibitted the form from being saved: </h3>
+   <ul>
+    <% @project.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+   </ul>
+  </div>
+ <% end %>
+
+ <div class="form-group" >
+<%= f.label :client_id %>
+<%= f.collection_select :client_id, Client.all, :id, :company, {prompt: "Select Client"
+}, {class: "form-control"} %>
+</div>
+
+
+<div class="form-group">
+<%= f.label :name %>
+<%= f.text_field :name, class: "form-control" %>
+</div>
+
+<div class="form-group">
+<%= f.label :description %>
+<%= f.text_area :description, class: "form-control",id: "description" %>
+<span id="charsLeft" class="pull-right"></span>
+</div>
+<script>
+    var charLeftHandle = document.getElementById('charsLeft');
+    var descriptionHandle = document.getElementById('description');
+    var maxChars = 160;
+//descriptionHandle.onkeyup = function(e){
+    descriptionHandle.onkeypress = function(e){
+      var charsCount = descriptionHandle.value.length;
+      if(maxChars - charsCount >= 0){
+        charLeftHandle.innerHTML = maxChars - charsCount;
+
+      }else{
+        e.preventDefault();
+      }
+    };
+    charsLeftHandle.innerHTML = "160";
+  </script>
+
+
+<div class="form-group">
+<%= f.label :start_date %>
+<%= f.text_field :start_date ,id: "startDate" , class: "form-control" %>
+</div>
+
+<div class="form-group">
+<%= f.label :end_date %>
+<%= f.text_field :end_date ,id: "endDate" , class: "form-control" %>
+</div>
+
+
+<!-- drop downs -->
+<%# f.label :status %>
+<%# f.select :status, ["new", "on-going", "completed"], prompt: "select status" %>
+
+
+<%# f.label :status %>
+<%# f.radio_button :status, "new" %>
+<%# f.radio_button :status, "on-going" %>
+<%# f.radio_button :status, "completed" %>
+
+
+
+<div class="form-group">
+<%= f.label :status %>
+	
+	  <label class="radio-inline">
+		<%= f.radio_button :status, "new" %>New
+	  </label>
+	
+
+	
+	  <label class="radio-inline">
+		<%= f.radio_button :status, "on-going" %>On Going
+	  </label>
+	
+
+	
+	  <label class="radio-inline">
+		<%= f.radio_button :status, "completed" %>Complete
+	  </label>
+	
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="form-group">
+<%= f.label :status %>
+	<div class="radio">
+	  <label>
+		<%= f.radio_button :status, "new" %>New
+	  </label>
+	</div>
+
+	<div class="radio">
+	  <label>
+		<%= f.radio_button :status, "on-going" %>On Going
+	  </label>
+	</div>
+
+	<div class="radio">
+	  <label>
+		<%= f.radio_button :status, "completed" %>Complete
+	  </label>
+	</div>
+
+</div>
+
+
+<%# f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+<%= f.label :categories %>
+ <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |c| %>
+	<div class="checkbox">
+		<label>
+			<%= c.check_box %>
+			<%= c.object.name %>
+		</label>
+	</div>
+	<% end %>
+
+<%= f.submit "Submit", class: "btn btn-success" %> or <%= link_to "Go Back", projects_path %>
+
+
+
+
+
+
+
+<% end %>
+<%= render 'js' %>

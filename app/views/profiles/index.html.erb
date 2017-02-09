@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Profiles</h1>
+
+<% if current_user.profile.nil? %>
+  <%= link_to "My Profile", new_profile_path, id: "new_profile_link", remote: true %>
+<% else %>
+<% end %>
+
+
+

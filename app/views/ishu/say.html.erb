@@ -1,0 +1,21 @@
+<h1>Hellow World</h1>
+<%= link_to "Say Goodbye", "/say/Goodbye"
+
+
+<p>2+2 = <%= 2+2 %> </p>
+
+<% name = "ishu" %>
+
+<p>Welcome to this site <%= name %></p>
+
+<% movies = ["aa", "a", "24", "magnu"] %>
+<h5> Listing Movies </h5>
+<ol>
+  <% movies.each do |movie| %>
+   <li> <%= movie %></li>
+     <% end %>
+<ol>
+
+<a href="http://wwww.google.com" target="_blank">visit Google</a>
+
+<%= link_to "Google visit", "http://www.google.com", target: "_blank"%>

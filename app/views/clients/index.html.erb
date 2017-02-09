@@ -1,0 +1,139 @@
+<div class="row">
+
+  <div class="col-md-9">
+    <div class="pageheader">
+      <h2>Listing Clients <small> Total : <%= @clients.size %></small>
+      <div class="pull-right">
+       <%# link_to "Add Client", new_client_path, class: "btn btn-primary" %>
+       <%# link_to "export to excel",   clients_export_path(format: "xls"), class: "btn btn-info" %>
+       <%# link_to "Export", project_path(format: "xls"), class: "btn btn-info" %>
+
+       <%= link_to  new_client_path, class: "btn btn-primary" do %>
+       <i class="glyphicon glyphicon-plus"></i> Add client
+       <% end %>
+
+       <%= link_to  clients_path(format: "xls"), class: "btn btn-info" do %>
+       <i class="glyphicon glyphicon-download-alt"></i> Download 
+       <% end %>
+
+      </div>
+      </h2>
+    </div>
+    
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>sl.no</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Mobile Number</th>
+          <th>Company</th>
+          <th>Website</th>
+          <th>View</th>
+          <th>Edit</th>
+          <th>Destroy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% count = 1 %>
+          <% @clients.each do |client| %>
+        <tr>
+          <td><%= count %></td>
+          <td><%= client.name.capitalize %></td>
+          <td><%= client.email %></td>
+          <td><%= client.mobile %></td>
+          <td><%= client.company %></td>
+          <td><%= client.website %></td>
+          <td><%= link_to "show", client_path(client) %></td>
+          <%# link_to "edit", edit_client_path(@client.id) %>
+          <td><%= link_to  edit_client_path(client.id),class: "btn btn-info" do %>
+			Edit <span class="glyphicon glyphicon-pencil"></span>
+          <% end %></td>
+
+
+
+
+ <%# link_to "destroy", project_path(@project.id),method: :delete, data: {confirm: "Are you sure?"}   %>
+		<td><%= link_to  client_path(client.id),method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" do  %>
+            Destroy <span class="glyphicon glyphicon-trash"></span>
+        <% end %></td>
+
+          
+         <%# link_to "destroy", client_path(@client.id),method: :delete, data: {confirm: "Are you sure?"}   %>
+          
+        </tr>
+        <% count += 1 %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-md-3">
+    <div class="pageheader">
+      <h3>Some Status</h3>
+    </div>
+
+    <% data = {} %>
+<% @clients.each do |client| %>
+ <% data[client.name] = client.projects.size %>
+ <% end %>
+
+<!--<%= data %> -->
+ <%= column_chart(data) %>
+ <%= bar_chart(data) %>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!--
+<h2>Listing Projects</h2>
+
+
+<%# link_to "export to excel",   projects_export_path(format: "xls") %>
+
+<ul>
+
+<li>
+<%# link_to  project.name, project_path(project.id) %>
+</li>
+<%# end %>
+</ul>
+
+-->
+
+
+
+<!--
+<h2>Listing clients</h2>
+<%# link_to "Add client", new_client_path %>
+
+<%# link_to "export to excel",   clients_export_path(format: "xls") %>
+ <ol>
+<%# @clients.each do |client| %>
+<li> <%# link_to  client.name, client_path(client.id) %>
+     <%# link_to  "show", client_path(client.id) %>
+</li>
+<%# end %>
+</ol>
+
+<% data = {} %>
+<%# @clients.each do |client| %>
+ <%# data[client.name] = client.projects.size %>
+ <%# end %>
+
+
+ <%# column_chart(data) %>
+ <%# bar_chart(data) %>
+-->
+
+
+
+
+ 

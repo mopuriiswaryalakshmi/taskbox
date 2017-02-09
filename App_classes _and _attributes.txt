@@ -1,0 +1,255 @@
+Hospitals =   Full_name,
+      		  Email_id,
+              Phone_number,
+	          Name_of_Hospital,
+              Area,
+	          State,
+	          Pin_code,
+	          Country,
+	          Available_departments,
+              Laboratory_facilities,
+              Blood_Group,
+              Blood_available,
+              Hospital_phone_number,
+              
+
+Blood_Banks = Name_of_BloodBank
+              Email_id,
+ 			  Area,
+			  State,
+	          Country,
+	          Blood_Group,
+              Blood_available,
+              BloodBank_phone_number,
+              Pin_code.
+
+Blood_Donars =  Full_name,
+      		    Email_id,
+                Phone_number,
+                Age,
+                Blood_Group,
+                Blood_Donated_quantity,
+                Blood_donated_camps_area,
+	            Blood_donated_BloodBank_Name,
+                Blood_donated_Hospital_Name.
+
+Blood_Buyers =  Full_name,
+      		    Email_id,
+                Phone_number,
+                Address,
+                Name_of_Hospital,
+                Name_of_BloodBank,
+                Name_of_Donar.
+
+Campaigns =    Camps_conducted_by
+               Email_id,
+               Phone_number,
+               Campaign_area,
+               Campaign_Date,
+               Received_data.
+
+Bookings =     Full_name,
+      		   Email_id,
+               Phone_number,
+               Address,
+               Blood_group,
+               quantity_of_blood.
+
+Chemist =      Name_of_Chemist
+               Area,
+	           State,
+	           Country,
+               Email_id,
+               Phone_number.
+               
+Laboratory =   Name_of_Laboratory,
+               Area,
+	           State,
+	           Country,
+               Email_id,
+               Phone_number.
+               
+
+
+2nd project REST ROOMS
+
+
+           location  =  State,
+	                    city,
+	          			Area,
+	           			District,
+	           			Town,
+	           			Village.
+
+Available_Rest_Rooms =  How Many rest rooms present,
+                        Allocated rest room number,
+ 						Area allocated,
+ 						State.
+ 						
+          Maitanance =  Cleaning staff,
+                   	    Shift timings,
+             		    Guard shift.
+
+       Allocated_Fund = Funds transaction status,
+                 		Restroom implementation,
+                 		authorised people. 
+
+       		 Feedback =  Description,
+       		             Area,
+       		             State,
+	                     city.
+
+      People_Requests =  Applicant_name,
+       					 Email_id,
+                         Phone_number,
+                         Full_address.            
+                          
+          
+
+
+3rd Project DRAWING_MASTER
+    
+
+
+
+user_information =  Name,
+       				Email_id,
+                    Phone_number,
+                    Full_address.
+
+      
+      Clip_Borad  =  Past,
+                     Cut,
+                     Copy.
+
+
+            Image  = Rectangular_selection,
+                     Freeform_selection,
+                     Resize,
+                     Rotate right 90,
+                     Rotate left 90,
+                     Rotate 180,
+                     Flip_vertically,
+                     Flip_horizontally.
+
+
+
+          Tools   =  Pencil,
+                     Fill_with_color,
+                     Text,
+                     Eraser,
+                     color_picker,
+                     Magnifier,
+                     Brushes.
+                     
+
+          Brushes =  Brush,
+                     Calligraph_brush_1,
+                     Calligraph_brush_2,
+                     Air_brush,
+                     Oil_brush,
+                     Crayon,
+                     Marker,
+                     Natural_Pencil,
+                     Watercolor_brush.
+
+
+           Shapes = Line,
+                    curve,
+                    oval,
+                    Rectangle,
+                    Rounded_Rectangle,
+                    Polygon,
+                    Triangle,
+                    Right_Triangle,
+                    Dimond,
+                    pentagon,
+                    Hexagon,
+                    Right_arrow,
+                    Left_arrow,
+                    Up_arrow,
+                    Down_arrow,
+                    Four_point_star,
+                    Five_point_star,
+                    Six_point_star.
+
+
+       Shape_outline = No_outline,
+                       Solid_color,
+                       Crayon,
+                       Marker,
+                       Oil,
+                       Natural_Pencil,
+                       Water_color
+
+
+               Fill  = No_fill,
+                       Solid_color,
+                       Crayon,
+                       Marker,
+                       Oil,
+                       Natural_Pencil,
+                       Water_color
+
+
+
+                Size = 1px,
+                       3px,
+                       5px,
+                       7px.
+
+
+            Colors  =  foreground color,
+                       Background color,
+                       black,
+                       gray,
+                       Dark_red,
+                       Red,
+                       Orange,
+                       yellow,
+                       green,
+                       turquoise,
+                       indigo,
+                       purple,
+                       white,
+                       Brown,
+                       Rose,
+                       Gold,
+                       Light_yellow,
+                       Lime,
+                       Light_turquoise,
+                       Blue_gray,
+                       Lavender.
+
+
+Drawing_Test_Result = Name,
+                      Test,
+                      Net_speed,
+                      Accuracy,
+                      Gross_speed,
+                      Duration,
+                      Date.
+
+
+
+Default_Diagram_1 =  Level_1
+ 
+Default_Diagram_2 =  Level_2 
+
+Default_Diagram_3  = Level_3 
+
+Default_Diagram_4  = Level_4 
+
+Default_Diagram_5  = Level_5 
+
+Default_Diagram_6  = Level_6 
+
+Default_Diagram_7  = Level_7 
+
+Default_Diagram_8  = Level_8
+
+Default_Diagram_9  = Level_9 
+
+Default_Diagram_10  = Level_10 
+
+            

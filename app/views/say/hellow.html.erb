@@ -1,0 +1,24 @@
+<h2>Hello World</h2>
+<%= link_to "Say Goodbye", "/say/goodbye" %>
+
+<a href="http://localhost:3000/say/goodbye" target="_blank">visit google</a> 
+
+<%= link_to "Say Goodbye", say_goodbye_path %>
+
+<p>2 +2 = <%= 2 +2 %> </p>
+
+<% name = "Suresh" %>
+
+<p>Welcome to the site <%= name %></p>
+
+<% movies = ["The Fury", "Departed", "Jason Bourne", "Good WILL hunting", "Baasha"] %>
+<h3>Listing Movies</h3>
+<ol>
+  <% movies.each do |movie| %>
+    <li><%= movie %></li>
+    <% end %>
+   </ol>
+
+   <a href="http://www.google.com" target="_blank">visit Google</a>
+
+   <%= link_to "Google visit", "http://www.google.com", target: "_blank" %>

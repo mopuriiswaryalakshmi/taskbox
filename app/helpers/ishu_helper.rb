@@ -1,0 +1,2 @@
+module IshuHelper
+end

@@ -1,0 +1,165 @@
+<div class="row">
+  <div class="col-md-8">
+      <h3><%= @project.name %></h3>
+<%= @project.start_date.strftime("%d %B %Y") %>
+<b>Client : <%#  @project.client.name if !@project.client.nil?%>
+            <%= link_to @project.client.try(:name), @project.client %>
+</b>
+
+
+<div id ="calendar" %>
+  </div>
+
+
+
+
+<div class="progress">
+  <div class="progress-bar progress-bar-success" style="width: <%= @project.calc_completed %>%;">
+  </div>
+</div>
+
+
+
+<br/>
+<b>Categories</b>
+<ul>
+  <% @project.categories.each do |category| %>
+    <li><%= category.name %></li>
+  <% end %>
+</ul>
+
+<h3> Listing Tasks</h3>
+
+  <h4>Over Due </h4>
+    <ol>
+    <% @project.overdue_tasks.each do |task|  %>
+      <li><%= task.title %> - <%= task.due_date %> - <%= task.is_completed %>
+      
+        <%= link_to "Mark As Complete", tasks_mark_as_complete_path(task_id: task.id) %>
+
+      </li>
+    <% end %>
+  </ol>
+  <h4>Incomplete </h4>
+  <ol>
+    <% @project.incomplete_tasks.each do |task|  %>
+      <li><%= task.title %> - <%= task.due_date %> - <%= task.is_completed %> 
+      <%= link_to "Mark As Complete", tasks_mark_as_complete_path(task_id: task.id) %>
+      </li>
+    <% end %>
+  </ol>
+  <h4>Completed </h4>
+  <ol>
+    <% @project.completed_tasks.each do |task|  %>
+      <li><%= task.title %> - <%= task.due_date %> - <%= task.is_completed %></li>
+    <% end %>
+  </ol>
+
+  </div>
+
+  <div class="col-md-4">
+
+        <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addTask">
+           Add Task
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="addTask" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Add Task for <%= @project.name %></h4>
+                </div>
+                <div class="modal-body">
+                <%= form_for @task do |f| %>
+
+                <%= f.hidden_field :project_id, value: @project.id %>
+
+                <div class="form-group">
+                <%= f.label :title %>
+                <%= f.text_field :title, class: "form-control" %>
+                </div>
+
+                <div class="form-group">
+                  <%= f.label :due_date %>
+                  <%= f.text_field :due_date, id: "dueDate", class: "form-control" %>
+                </div>
+
+                <div class="checkbox">
+                  <label>
+                    <%= f.check_box :is_completed %>
+                    <%= f.label :is_completed %> ?
+                  </label>
+                </div>
+                <br/>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <%= f.submit "Submit", class: "btn btn-success" %>
+
+                <% end %>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+
+  </div> <!-- modal ends here -->
+</div>
+
+
+<%= link_to "destroy", project_path(@project.id),method: :delete, data: {confirm: "Are you sure?"}   %>
+<%= link_to  project_path(@project.id),method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" do  %>
+  Destroy <span class="glyphicon glyphicon-edit"></span>
+  <% end %>
+
+
+
+<%= link_to "Back", projects_path %>
+
+
+<%= render 'js' %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+<h2>Add New announcements</h2>
+
+<%= form_for @announcement do |f| %>
+
+
+<%= f.label :title %><br/>
+<%= f.text_field :title %><br/>
+
+<%= f.label :body %><br/>
+<%= f.text_area :body %><br/>
+
+
+<%= f.submit "Send" %>
+
+<% end %>
